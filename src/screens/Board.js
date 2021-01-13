@@ -71,6 +71,15 @@ export default function Board ({route, navigation}) {
     dispatch(solveBoard(initBoard))
   }
 
+  const secToMin = (seconds) => {
+    let minutes = 0;
+    if (seconds / 60 > 0) {
+      minutes = parseInt(seconds / 60, 10);
+      seconds = seconds % 60;
+    }
+    return ('0' + minutes).slice(-2) + ' : ' + ('0' + seconds).slice(-2);
+  }
+
   if (error) {
     return (
       <View style={styles.container}>
@@ -95,7 +104,7 @@ export default function Board ({route, navigation}) {
           <ScrollView>
             <View style={[styles.container, styles.bgwhite, {width:width}]}>
             <Text style={[{fontSize:40, fontWeight:'bold', color: 'black'},styles.textshadow]}>{diff.toUpperCase()}</Text>
-            <Text style={[{fontSize:20, fontWeight:'bold', color: 'black', paddingBottom:10},styles.textshadow]}>{timer} sec</Text>
+            <Text style={[{fontSize:20, fontWeight:'bold', color: 'black', paddingBottom:10},styles.textshadow]}>{secToMin(timer)}</Text>
               <View style={{marginBottom: 10, padding: 6, borderRadius: 10, backgroundColor: '#8b5a2b'}}>
               {
                 board.map((rows, rowsId) => {
@@ -132,7 +141,7 @@ export default function Board ({route, navigation}) {
                 ?
                 <Text></Text>
                 :
-                <Text style={{fontWeight:"700", fontSize: 20, marginTop: 10}}>{isSolved === 'unsolved' || isSolved === 'broken' ? 'Not Solved, Please Try Again' : 'Solved, Good Job'}</Text>
+                <Text style={{fontWeight:"700", fontSize: 20, marginVertical: 10}}>{isSolved === 'unsolved' || isSolved === 'broken' ? 'Not Solved, Please Try Again' : 'Solved, Good Job'}</Text>
               }
             </View>
           </ScrollView>

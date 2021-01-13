@@ -25,28 +25,34 @@ export default function Home ({ navigation }) {
         <View style={[styles.bgwhite, {width:width, paddingVertical:20}]}>
           <Text style={[{fontSize:40, fontWeight:'bold', textAlign:'center', paddingBottom: 50},styles.textshadow]}>SUDOKUUU GAME</Text>
           <View style={styles.container}>
-            <Text style={{fontWeight:'700', fontSize: 20, marginBottom: 10}}>Who are you challenger?</Text>
-            <TextInput style={styles.input} onChangeText={(e) => setName(e)} value={name}/>
+            <Text
+              style={{fontWeight:'700', fontSize: 20, marginBottom: 10}}
+            >Who are you challenger?</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(e) => setName(e)} value={name}
+              placeholder="Insert Your Name"
+            />
           </View>
           <View style={[styles.container, {marginTop: 25}]}>
             <Text style={{fontWeight:'700', fontSize: 20, marginBottom: 10}}>Choose Difficulty</Text>
             <View style={{flexDirection:'row', justifyContent: 'space-around'}}>
               <ButtonCustom
-                param={{diff:'easy', time: 150}}
+                param={{diff:'easy', time: 1800}}
                 color={'chartreuse'}
                 isDisabled={name.trim() === '' || name === '' ? true : false}
                 title='Easy'
                 func={playing}
               />
               <ButtonCustom
-                param={{diff:'medium', time: 120}}
+                param={{diff:'medium', time: 1500}}
                 color={'cornflowerblue'}
                 isDisabled={name.trim() === '' || name === '' ? true : false}
                 title='Medium'
                 func={playing}
               />
               <ButtonCustom
-                param={{diff:'hard', time: 5}}
+                param={{diff:'hard', time: 1200}}
                 color={'crimson'}
                 isDisabled={name.trim() === '' || name === '' ? true : false}
                 title='Hard'

@@ -66,7 +66,7 @@ export const validateBoard = (arr) => {
       if (data.status === 'solved') {
         time = 500
       } else {
-        time = 5000
+        time = 3000
       }
       setTimeout(() => {
         dispatch({

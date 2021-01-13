@@ -21,12 +21,12 @@ export default function Finish ({ route }) {
             <Text
             style={{fontSize:20, textAlign:'center', padding: 10}}
             >
-              Congratulation {name}, you're success clearing {capitalizeFirstLetter(diff)} difficulty in {second} second !!!
+              Congratulation {name}, you're success clearing {capitalizeFirstLetter(diff)} difficulty in {second} second.
             </Text>
           </View>
           <View style={[styles.container, styles.bgwhite, {width: width, minHeight: height / 8, marginTop: 20, paddingVertical: 20}]}>
             <Text
-              style={{fontSize:20, textAlign:'center', fontWeight:'bold'}}
+              style={{fontSize:30, textAlign:'center', fontWeight:'bold'}}
             >
               Leader Board
             </Text>

@@ -15,8 +15,16 @@ export default function LeaderBoard ({width, diff, title, capitalizeFirstLetter}
         <Text style={{width: width / 4, textAlign: 'center', fontWeight:'bold'}}>Time</Text>
       </View>
       {
+        diff.length === 0
+        ?
+        <View style={{flexDirection:'row', width: width - 20, alignItems: 'center', justifyContent: 'center', paddingVertical: 5, backgroundColor: '#FFFFFFa0'}}>
+          <Text style={{width: width / 4, textAlign: 'center', fontWeight:'bold'}}>-</Text>
+          <Text style={{width: width / 4, textAlign: 'center', fontWeight:'bold'}}>-</Text>
+          <Text style={{width: width / 4, textAlign: 'center', fontWeight:'bold'}}>-</Text>
+        </View>
+        :
         diff.map((e, idx) => (
-          <View key={idx} style={{flexDirection:'row', width: width - 20, alignItems: 'center', justifyContent: 'center', paddingVertical: 5}}>
+          <View key={idx} style={{flexDirection:'row', width: width - 20, alignItems: 'center', justifyContent: 'center', paddingVertical: 5, backgroundColor: '#FFFFFFa0'}}>
             <Text style={{width: width / 4, textAlign: 'center'}}>{e.name}</Text>
             <Text style={{width: width / 4, textAlign: 'center'}}>{capitalizeFirstLetter(e.diff)}</Text>
             <Text style={{width: width / 4, textAlign: 'center'}}>{e.second} sec</Text>

@@ -17,17 +17,17 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{ title: 'Sudokuuu Game' }}
+            options={{ title: 'Sudokuuu Game', headerTitleAlign: "center" }}
           />
           <Stack.Screen
             name="Board"
             component={Board}
-            options={{ title: 'Sudokuuu Game' }}
+            options={{ title: 'Sudokuuu Game', headerTitleAlign: "center" }}
           />
           <Stack.Screen
             name="Finish"
             component={Finish}
-            options={{ title: 'Congratulations!' }}
+            options={{ title: 'Congratulations!', headerTitleAlign: "center" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
