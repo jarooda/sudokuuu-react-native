@@ -112,13 +112,34 @@ export default function Board ({route, navigation}) {
                     <TextInput
                       editable={initBoard[rowsId][colId] > 0 ? false : true}
                       keyboardType="numeric"
-                      style={[styles.input, {width: (width / 9) - 10, height: (width / 9) - 10}]}
+                      style={
+                        [
+                          styles.input,
+                          {
+                            width: (width / 9) - 10,
+                            height: (width / 9) - 10,
+                            borderRightWidth: colId % 3 === 2 && colId !== 8 ? 3 : 1,
+                            borderBottomWidth: rowsId % 3 === 2 && rowsId !== 8 ? 3 : 1
+                          }
+                        ]
+                      }
                       key={colId}
                       onChangeText={(e) => e.length < 2 ? inputChange(e, rowsId, colId) : '' }
                       value={col === 0 ? '' : col.toString()}
                     />
                   ))
-                  return <View style={{flexDirection:'row'}} key={rowsId}>{row}</View>
+                  return (
+                    <View
+                      style={
+                        {
+                          flexDirection:'row'
+                        }
+                      }
+                      key={rowsId}
+                      >
+                        {row}
+                    </View>
+                  )
                 })
               }
               </View>
@@ -153,9 +174,8 @@ export default function Board ({route, navigation}) {
 
 const styles = StyleSheet.create({
   input: {
-    borderWidth: 1,
-    textAlign: 'center',
     backgroundColor: '#fff',
+    textAlign: 'center',
     borderColor: '#8b5a2b'
   },
   container: {
